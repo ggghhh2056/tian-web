@@ -3,23 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>一查通</title>
+    <title>一查通 · 专业咨询</title>
     
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        // 强制气泡第一时间出现
         Tawk_API.onLoad = function(){
-            Tawk_API.showWidget();
+            Tawk_API.showWidget(); // 强制第一时间渲染气泡
         };
-
-        function startChat() {
-            if (window.Tawk_API && Tawk_API.maximize) {
-                Tawk_API.maximize();
-            } else {
-                window.location.href = 'https://tawk.to/chat/696485c7595a11197eb053a0/1jeoal4p0';
-            }
-        }
-
         (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
             s1.async=true;
@@ -28,72 +18,85 @@
             s1.setAttribute('crossorigin','*');
             s0.parentNode.insertBefore(s1,s0);
         })();
+
+        function startChat() {
+            if (window.Tawk_API && Tawk_API.maximize) {
+                Tawk_API.maximize();
+            } else {
+                window.location.href = 'https://tawk.to/chat/696485c7595a11197eb053a0/1jeoal4p0';
+            }
+        }
     </script>
 
     <style>
-        body { font-family: -apple-system, sans-serif; margin: 0; padding: 0; background: #f4f7f9; color: #333; overflow-x: hidden; }
+        body { font-family: -apple-system, sans-serif; margin: 0; padding: 0; background: #f4f7f9; color: #333; }
         
-        /* 顶部极致缩小 */
-        .header { background: linear-gradient(135deg, #007aff 0%, #00c6ff 100%); color: white; padding: 10px 0; text-align: center; }
-        .header h1 { margin: 0; font-size: 20px; }
-        
-        /* 引导语紧凑化 */
-        .wechat-warning { background: #fffbe6; color: #856404; padding: 5px 10px; font-size: 11px; text-align: center; border-bottom: 1px solid #ffe58f; }
+        /* 顶部引导栏 */
+        .wechat-hint { background: #fffbe6; color: #856404; padding: 10px; font-size: 13px; text-align: center; font-weight: bold; border-bottom: 1px solid #ffe58f; }
 
-        .container { padding: 8px; max-width: 500px; margin: 0 auto; }
+        /* 饱满的页眉 */
+        .header { background: linear-gradient(135deg, #007aff 0%, #00c6ff 100%); color: white; padding: 25px 0; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header h1 { margin: 0; font-size: 26px; letter-spacing: 1px; }
+        .header p { margin: 5px 0 0; font-size: 14px; opacity: 0.9; }
+
+        .container { padding: 12px; max-width: 500px; margin: 0 auto; }
         
-        /* 卡片紧凑化 */
-        .card { background: white; border-radius: 8px; padding: 10px; margin-bottom: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
-        .card-title { font-size: 14px; color: #007aff; font-weight: bold; margin-bottom: 8px; border-left: 3px solid #007aff; padding-left: 8px; }
+        /* 业务卡片：撑开高度 */
+        .card { background: white; border-radius: 12px; padding: 18px 12px; margin-bottom: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); }
+        .card-title { font-size: 16px; color: #007aff; font-weight: bold; margin-bottom: 15px; border-left: 4px solid #007aff; padding-left: 10px; }
         
-        /* 业务网格紧凑化：3列排列减少高度 */
-        .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
-        .item { background: #f8f9fa; padding: 6px 2px; border-radius: 4px; font-size: 11px; border: 1px solid #eee; text-align: center; white-space: nowrap; }
+        /* 业务网格：两列布局，增加垂直高度，更饱满 */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .item { background: #f8faff; padding: 15px 5px; border-radius: 8px; font-size: 14px; border: 1px solid #e1e8f5; text-align: center; font-weight: 500; color: #444; }
         
-        .notice-text { font-size: 12px; line-height: 1.4; color: #666; }
+        .notice-box { margin-top: 5px; font-size: 14px; line-height: 1.6; color: #555; }
         
-        /* 咨询按钮 */
+        /* 巨大的咨询按钮 */
         .chat-btn { 
-            background: #ff3b30; color: #fff; padding: 10px; 
-            margin-top: 8px; font-weight: bold; font-size: 15px;
-            text-align: center; border-radius: 6px; cursor: pointer;
+            background: #ff3b30; color: #fff; padding: 18px; 
+            margin-top: 15px; font-weight: bold; font-size: 18px;
+            text-align: center; border-radius: 10px; cursor: pointer;
             border: none; width: 100%; display: block;
+            box-shadow: 0 5px 15px rgba(255,59,48,0.3);
         }
 
-        .safe-hint { text-align: center; color: #bbb; font-size: 10px; margin-top: 5px; }
+        .safe-tag { text-align: center; color: #aaa; font-size: 11px; margin-top: 15px; }
     </style>
 </head>
 <body>
 
-    <div class="wechat-warning">
+    <div class="wechat-hint">
         ⚠️ 微信用户请点击右上角【...】选择【在浏览器打开】咨询，避免卡死。
     </div>
 
     <div class="header">
-        <h1>一查通 · 专业咨询</h1>
+        <h1>一查通 · 专业查询服务</h1>
+        <p>高效 · 准确 · 100% 隐私保护</p>
     </div>
 
     <div class="container">
         <div class="card">
-            <div class="card-title">业务清单 (最快当天出)</div>
+            <div class="card-title">实时业务清单</div>
             <div class="grid">
-                <div class="item">司法冻结</div><div class="item">名下手机</div><div class="item">身份信息</div>
-                <div class="item">出入记录</div><div class="item">婚姻记录</div><div class="item">快递外卖</div>
-                <div class="item">精准定位</div><div class="item">开房同住</div><div class="item">通话咨询</div>
-                <div class="item">微信好友</div><div class="item">全家户籍</div><div class="item">实名信息</div>
-                <div class="item">汽车轨迹</div><div class="item">案件详情</div><div class="item">更多咨询</div>
+                <div class="item">司法冻结查询</div><div class="item">名下手机号查询</div>
+                <div class="item">身份信息查询</div><div class="item">出入境/出行记录</div>
+                <div class="item">个人婚姻记录</div><div class="item">快递/外卖地址</div>
+                <div class="item">手机号精准定位</div><div class="item">开房记录/同住人员</div>
+                <div class="item">通话记录咨询</div><div class="item">微信好友列表</div>
+                <div class="item">全家户籍信息</div><div class="item">微信/支实名信息</div>
+                <div class="item">汽车轨迹查询</div><div class="item">被抓案件详情</div>
             </div>
         </div>
 
-        <div class="card" style="margin-bottom: 5px;">
-            <div class="notice-text">
-                • 结果保证真实有效，<b style="color:#ff3b30">100%准确度</b>。<br>
+        <div class="card">
+            <div class="notice-box">
+                • 结果保证真实有效，<b style="color:#ff3b30">人工核验100%准确</b>。<br>
                 • 请点击下方按钮或右下角<b style="color:#44b549">绿色气泡</b>联系客服。
-                <button onclick="startChat()" class="chat-btn">立即在线咨询</button>
+                <button onclick="startChat()" class="chat-btn">立即开始在线咨询</button>
             </div>
         </div>
 
-        <div class="safe-hint">🔒 加密安全连接已建立</div>
+        <div class="safe-tag">🔒 加密传输协议已开启 · 阅后即焚</div>
     </div>
 
 </body>

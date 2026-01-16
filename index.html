@@ -6,15 +6,26 @@
     <title>一查通 - 极速咨询</title>
     
     <script type="text/javascript">
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        // 微信环境强制优化：只要脚本加载完，立刻弹出气泡
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        
+        // 【关键修复】针对微信卡死的配置
         Tawk_API.onLoad = function(){
             Tawk_API.showWidget();
+            // 强制设置为弹出模式，防止在微信内嵌时出现布局冲突
             Tawk_API.setAttributes({
-                'Name'  : '新客户',
-                'Source': '微信/手机浏览器'
-            }, function(error){});
+                'visibility' : 'show'
+            });
         };
+
+        // 如果点击后气泡消失，尝试重新最大化窗口
+        function forceOpenChat() {
+            if (window.Tawk_API && Tawk_API.maximize) {
+                Tawk_API.maximize();
+            } else {
+                alert('正在连接，请稍等3秒再试');
+            }
+        }
+
         (function(){
             var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
             s1.async=true;
@@ -26,23 +37,26 @@
     </script>
 
     <style>
-        body { font-family: -apple-system, "Helvetica Neue", Arial, sans-serif; margin: 0; padding: 0; background: #f4f7f9; color: #333; }
-        .header { background: linear-gradient(135deg, #007aff 0%, #00c6ff 100%); color: white; padding: 40px 20px; text-align: center; border-bottom: 3px solid rgba(255,255,255,0.2); }
-        .header h1 { margin: 0; font-size: 30px; letter-spacing: 3px; }
+        body { font-family: -apple-system, sans-serif; margin: 0; padding: 0; background: #f4f7f9; color: #333; }
+        .header { background: linear-gradient(135deg, #007aff 0%, #00c6ff 100%); color: white; padding: 40px 20px; text-align: center; }
+        .header h1 { margin: 0; font-size: 28px; }
         .container { padding: 15px; max-width: 500px; margin: 0 auto; }
         .card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .card-title { font-size: 18px; color: #007aff; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; }
-        .card-title::before { content: ""; width: 5px; height: 18px; background: #007aff; margin-right: 10px; border-radius: 3px; }
+        .card-title { font-size: 17px; color: #007aff; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; }
+        .card-title::before { content: ""; width: 5px; height: 16px; background: #007aff; margin-right: 10px; border-radius: 3px; }
         
-        /* 业务清单 */
+        /* 业务网格 */
         .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-        .item { background: #fdfdfd; padding: 12px 8px; border-radius: 6px; font-size: 14px; border: 1px solid #eee; text-align: center; color: #444; }
+        .item { background: #fdfdfd; padding: 12px 5px; border-radius: 6px; font-size: 14px; border: 1px solid #eee; text-align: center; }
         
-        /* 服务声明 */
-        .notice { font-size: 14px; line-height: 1.8; color: #555; }
-        .red-bold { color: #ff3b30; font-weight: bold; font-size: 16px; }
-        .full-red-box { background: #fff5f5; border: 1px dashed #ff3b30; padding: 10px; margin-top: 10px; color: #ff3b30; font-weight: bold; text-align: center; border-radius: 8px; }
+        /* 红色声明区 - 增加点击事件，作为双保险 */
+        .full-red-box { 
+            background: #fff5f5; border: 1px dashed #ff3b30; padding: 12px; 
+            margin-top: 10px; color: #ff3b30; font-weight: bold; 
+            text-align: center; border-radius: 8px; cursor: pointer;
+        }
         
+        .red-bold { color: #ff3b30; font-weight: bold; }
         .safe-hint { text-align: center; color: #999; font-size: 12px; margin-top: 20px; }
     </style>
 </head>
@@ -57,36 +71,28 @@
         <div class="card">
             <div class="card-title">可办项目清单</div>
             <div class="grid">
-                <div class="item">司法冻结查询</div>
-                <div class="item">名下手机号查询</div>
-                <div class="item">身份信息查询</div>
-                <div class="item">出入境/出行记录</div>
-                <div class="item">个人婚姻记录</div>
-                <div class="item">快递/外卖地址</div>
-                <div class="item">手机号精准定位</div>
-                <div class="item">开房记录/同住人员</div>
-                <div class="item">通话记录咨询</div>
-                <div class="item">微信好友列表</div>
-                <div class="item">全家户籍信息</div>
-                <div class="item">微信/支实名信息</div>
-                <div class="item">汽车轨迹</div>
-                <div class="item">被抓案件详情</div>
+                <div class="item">司法冻结查询</div><div class="item">名下手机号查询</div>
+                <div class="item">身份信息查询</div><div class="item">出入境/出行记录</div>
+                <div class="item">个人婚姻记录</div><div class="item">快递/外卖地址</div>
+                <div class="item">手机号精准定位</div><div class="item">开房记录/同住人员</div>
+                <div class="item">通话记录咨询</div><div class="item">微信好友列表</div>
+                <div class="item">全家户籍信息</div><div class="item">微信/支实名信息</div>
+                <div class="item">汽车轨迹</div><div class="item">被抓案件详情</div>
             </div>
         </div>
 
         <div class="card">
             <div class="card-title">服务声明</div>
-            <div class="notice">
+            <div style="font-size: 14px; line-height: 1.8;">
                 1. 最快当天出结果，最晚隔天出结果。<br>
-                2. 所有查询结果保证真实有效，<span class="red-bold">100%</span>准确度。<br>
-                <div class="full-red-box">下单请点击右下角绿色气泡联系在线客服</div>
+                2. 所有查询结果保证真实有效，<span class="red-bold">100%</span>准确度。
+                <div class="full-red-box" onclick="forceOpenChat()">
+                    下单请点击此处 或 右下角气泡
+                </div>
             </div>
         </div>
 
-        <div class="safe-hint">
-            <img src="https://img.icons8.com/ios-filled/20/bbbbbb/shield.png" style="vertical-align: middle;">
-            端到端加密安全连接中
-        </div>
+        <div class="safe-hint">端到端加密安全连接中</div>
     </div>
 
 </body>

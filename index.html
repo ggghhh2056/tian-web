@@ -4,54 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>一查通 - 极速咨询</title>
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        // 关键：强制隐藏原生气泡，防止微信卡死
+        Tawk_API.onLoad = function(){
+            Tawk_API.hideWidget();
+        };
+        // 核心唤醒：不跳转，直接在内页展开
+        function openChat() {
+            if (window.Tawk_API && Tawk_API.maximize) {
+                Tawk_API.maximize();
+            } else {
+                // 仅当脚本未加载时跳转，作为最后保底
+                window.location.href = 'https://tawk.to/chat/696485c7595a11197eb053a0/1jeoal4p0';
+            }
+        }
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/696485c7595a11197eb053a0/1jeoal4p0';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
     <style>
-        body { font-family: -apple-system, sans-serif; margin: 0; padding: 0; background: #f4f7f9; color: #333; -webkit-tap-highlight-color: transparent; }
+        body { font-family: -apple-system, sans-serif; margin: 0; padding: 0; background: #f4f7f9; }
         .header { background: linear-gradient(135deg, #007aff 0%, #00c6ff 100%); color: white; padding: 40px 20px; text-align: center; }
-        .header h1 { margin: 0; font-size: 28px; letter-spacing: 2px; }
-        .container { padding: 15px; max-width: 500px; margin: 0 auto; padding-bottom: 80px; }
-        .card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .card-title { font-size: 17px; color: #007aff; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; }
-        .card-title::before { content: ""; width: 5px; height: 16px; background: #007aff; margin-right: 10px; border-radius: 3px; }
-        
-        /* 业务清单 */
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+        .container { padding: 15px; max-width: 500px; margin: 0 auto; }
+        .card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 15px 0; }
         .item { background: #fdfdfd; padding: 12px 5px; border-radius: 6px; font-size: 14px; border: 1px solid #eee; text-align: center; }
-        
-        /* 100% 不卡死的红色按钮 */
-        .full-red-box { 
-            background: #ff3b30; color: #fff; padding: 15px; 
-            margin-top: 10px; font-weight: bold; font-size: 17px;
-            text-align: center; border-radius: 8px; cursor: pointer;
-            box-shadow: 0 4px 10px rgba(255,59,48,0.3);
-            display: block; text-decoration: none;
+        /* 微信定制按钮：直接调用 JS 函数，不触发 URL 拦截 */
+        .chat-btn { 
+            background: #ff3b30; color: #fff; padding: 16px; border: none;
+            width: 100%; font-weight: bold; font-size: 17px;
+            border-radius: 10px; cursor: pointer; box-shadow: 0 4px 12px rgba(255,59,48,0.3);
         }
-        
-        /* 100% 不卡死的右下角绿按钮 */
-        .fixed-chat-btn {
-            position: fixed; bottom: 25px; right: 20px;
-            width: 65px; height: 65px; background-color: #44b549; 
-            border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 9999; animation: bounce 2s infinite;
-        }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .safe-hint { text-align: center; color: #999; font-size: 12px; margin-top: 20px; }
     </style>
 </head>
 <body>
-
-    <div class="header">
-        <h1>一查通</h1>
-        <p style="margin-top:8px; opacity:0.9;">安全 · 快速 · 100%保密</p>
-    </div>
-
+    <div class="header"><h1>一查通</h1><p>安全 · 快速 · 100%保密</p></div>
     <div class="container">
         <div class="card">
-            <div class="card-title">可办项目清单</div>
+            <div style="font-weight:bold; color:#007aff; margin-bottom:10px;">可办项目清单</div>
             <div class="grid">
                 <div class="item">司法冻结查询</div><div class="item">名下手机号查询</div>
                 <div class="item">身份信息查询</div><div class="item">出入境/出行记录</div>
@@ -61,27 +57,8 @@
                 <div class="item">全家户籍信息</div><div class="item">微信/支实名信息</div>
                 <div class="item">汽车轨迹</div><div class="item">被抓案件详情</div>
             </div>
+            <button class="chat-btn" onclick="openChat()">立即在线咨询 (24H)</button>
         </div>
-
-        <div class="card">
-            <div class="card-title">服务声明</div>
-            <div style="font-size: 14px; line-height: 1.8;">
-                1. 最快当天出结果，最晚隔天出结果。<br>
-                2. 所有查询结果保证真实有效，<b style="color:#ff3b30">100%</b>准确度。
-                <a href="https://tawk.to/chat/696485c7595a11197eb053a0/1jeoal4p0" class="full-red-box">
-                    点击此处 立即在线咨询
-                </a>
-            </div>
-        </div>
-
-        <div class="safe-hint">端到端加密安全连接中</div>
     </div>
-
-    <a href="https://tawk.to/chat/696485c7595a11197eb053a0/1jeoal4p0" class="fixed-chat-btn">
-        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M21 11.5C21 15.6421 17.1941 19 12.5 19C11.5034 19 10.5484 18.847 9.6713 18.5647L4 21L5.5 16.5C3.93125 15.1873 3 13.4445 3 11.5C3 7.35786 6.80589 4 11.5 4C16.1941 4 21 7.35786 21 11.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-    </a>
-
 </body>
 </html>

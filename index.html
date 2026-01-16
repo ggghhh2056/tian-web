@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>一查通 - 极速咨询</title>
+    <title>一查通</title>
     
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        // 自动隐藏气泡，避免微信渲染冲突
+        // 强制气泡第一时间出现
         Tawk_API.onLoad = function(){
-            Tawk_API.hideWidget();
+            Tawk_API.showWidget();
         };
 
         function startChat() {
             if (window.Tawk_API && Tawk_API.maximize) {
                 Tawk_API.maximize();
             } else {
-                // 如果脚本没加载完，尝试跳转
                 window.location.href = 'https://tawk.to/chat/696485c7595a11197eb053a0/1jeoal4p0';
             }
         }
@@ -32,79 +31,69 @@
     </script>
 
     <style>
-        body { font-family: -apple-system, sans-serif; margin: 0; padding: 0; background: #f4f7f9; color: #333; -webkit-tap-highlight-color: transparent; }
-        .header { background: linear-gradient(135deg, #007aff 0%, #00c6ff 100%); color: white; padding: 40px 20px; text-align: center; }
-        .header h1 { margin: 0; font-size: 28px; }
+        body { font-family: -apple-system, sans-serif; margin: 0; padding: 0; background: #f4f7f9; color: #333; overflow-x: hidden; }
         
-        /* 微信用户专用引导样式 */
-        .wechat-warning {
-            background: #fffbe6;
-            border: 1px solid #ffe58f;
-            color: #856404;
-            padding: 12px;
-            margin: 15px;
-            border-radius: 8px;
-            font-size: 14px;
-            line-height: 1.6;
-            font-weight: bold;
-        }
+        /* 顶部极致缩小 */
+        .header { background: linear-gradient(135deg, #007aff 0%, #00c6ff 100%); color: white; padding: 10px 0; text-align: center; }
+        .header h1 { margin: 0; font-size: 20px; }
+        
+        /* 引导语紧凑化 */
+        .wechat-warning { background: #fffbe6; color: #856404; padding: 5px 10px; font-size: 11px; text-align: center; border-bottom: 1px solid #ffe58f; }
 
-        .container { padding: 15px; max-width: 500px; margin: 0 auto; padding-bottom: 60px; }
-        .card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .card-title { font-size: 17px; color: #007aff; font-weight: bold; margin-bottom: 15px; display: flex; align-items: center; }
-        .card-title::before { content: ""; width: 5px; height: 16px; background: #007aff; margin-right: 10px; border-radius: 3px; }
+        .container { padding: 8px; max-width: 500px; margin: 0 auto; }
         
-        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-        .item { background: #fdfdfd; padding: 12px 5px; border-radius: 6px; font-size: 14px; border: 1px solid #eee; text-align: center; }
+        /* 卡片紧凑化 */
+        .card { background: white; border-radius: 8px; padding: 10px; margin-bottom: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .card-title { font-size: 14px; color: #007aff; font-weight: bold; margin-bottom: 8px; border-left: 3px solid #007aff; padding-left: 8px; }
         
+        /* 业务网格紧凑化：3列排列减少高度 */
+        .grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
+        .item { background: #f8f9fa; padding: 6px 2px; border-radius: 4px; font-size: 11px; border: 1px solid #eee; text-align: center; white-space: nowrap; }
+        
+        .notice-text { font-size: 12px; line-height: 1.4; color: #666; }
+        
+        /* 咨询按钮 */
         .chat-btn { 
-            background: #ff3b30; color: #fff; padding: 16px; 
-            margin-top: 15px; font-weight: bold; font-size: 18px;
-            text-align: center; border-radius: 10px; cursor: pointer;
-            box-shadow: 0 4px 12px rgba(255,59,48,0.3);
-            display: block; width: 100%; border: none;
+            background: #ff3b30; color: #fff; padding: 10px; 
+            margin-top: 8px; font-weight: bold; font-size: 15px;
+            text-align: center; border-radius: 6px; cursor: pointer;
+            border: none; width: 100%; display: block;
         }
 
-        .safe-hint { text-align: center; color: #999; font-size: 12px; margin-top: 20px; }
+        .safe-hint { text-align: center; color: #bbb; font-size: 10px; margin-top: 5px; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>一查通</h1>
-        <p style="margin-top:8px; opacity:0.9;">安全 · 快速 · 100%保密</p>
+    <div class="wechat-warning">
+        ⚠️ 微信用户请点击右上角【...】选择【在浏览器打开】咨询，避免卡死。
     </div>
 
-    <div class="wechat-warning">
-        ⚠️ 微信用户请点击右上角【...】，选择【在浏览器打开】咨询，避免卡死。
+    <div class="header">
+        <h1>一查通 · 专业咨询</h1>
     </div>
 
     <div class="container">
         <div class="card">
-            <div class="card-title">可办项目清单</div>
+            <div class="card-title">业务清单 (最快当天出)</div>
             <div class="grid">
-                <div class="item">司法冻结查询</div><div class="item">名下手机号查询</div>
-                <div class="item">身份信息查询</div><div class="item">出入境/出行记录</div>
-                <div class="item">个人婚姻记录</div><div class="item">快递/外卖地址</div>
-                <div class="item">手机号精准定位</div><div class="item">开房记录/同住人员</div>
-                <div class="item">通话记录咨询</div><div class="item">微信好友列表</div>
-                <div class="item">全家户籍信息</div><div class="item">微信/支实名信息</div>
-                <div class="item">汽车轨迹</div><div class="item">被抓案件详情</div>
+                <div class="item">司法冻结</div><div class="item">名下手机</div><div class="item">身份信息</div>
+                <div class="item">出入记录</div><div class="item">婚姻记录</div><div class="item">快递外卖</div>
+                <div class="item">精准定位</div><div class="item">开房同住</div><div class="item">通话咨询</div>
+                <div class="item">微信好友</div><div class="item">全家户籍</div><div class="item">实名信息</div>
+                <div class="item">汽车轨迹</div><div class="item">案件详情</div><div class="item">更多咨询</div>
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-title">服务声明</div>
-            <div style="font-size: 14px; line-height: 1.8;">
-                1. 最快当天出结果，最晚隔天出结果。<br>
-                2. 所有查询结果保证真实有效，<b style="color:#ff3b30">100%</b>准确度。<br>
-                <button onclick="startChat()" class="chat-btn">
-                    立即在线咨询 (24H)
-                </button>
+        <div class="card" style="margin-bottom: 5px;">
+            <div class="notice-text">
+                • 结果保证真实有效，<b style="color:#ff3b30">100%准确度</b>。<br>
+                • 请点击下方按钮或右下角<b style="color:#44b549">绿色气泡</b>联系客服。
+                <button onclick="startChat()" class="chat-btn">立即在线咨询</button>
             </div>
         </div>
 
-        <div class="safe-hint">加密安全连接已建立</div>
+        <div class="safe-hint">🔒 加密安全连接已建立</div>
     </div>
 
 </body>
